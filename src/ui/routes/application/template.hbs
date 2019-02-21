@@ -1,6 +1,6 @@
 {{import Intro from './-components/section-01-intro'}}
 
-<Slides as |actions|>
+<Presentation as |actions|>
   <Intro @openPresenterView={{actions.togglePresenterView}} />
   {{!-- <Section-01-Intro @openPresenterView={{actions.togglePresenterView}} /> --}}
   {{!-- <Section-02-AboutMe />
@@ -25,4 +25,4 @@
     @key='KeyS'
     @onUp={{actions.togglePresenterView}} />
 
-</Slides>
+</Presentation>
