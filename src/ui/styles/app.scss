@@ -1,0 +1,162 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600,300italic,700italic);
+
+@import 'node_modules/reveal.js/css/reveal.scss';
+@import 'node_modules/reveal.js/css/theme/template/mixins.scss';
+@import 'node_modules/reveal.js/css/theme/template/settings.scss';
+@import 'node_modules/reveal.js/css/theme/template/theme.scss';
+// @import 'node_modules/reveal.js/css/theme/solarized';
+@import './ember-theme.scss';
+@import './reveal-presentation';
+@import './syntax-theme';
+
+@import 'node_modules/bulma/sass/utilities/_all';
+@import 'node_modules/bulma/sass/base/_all';
+// @import 'node_modules/bulma/sass/elements/_all';
+@import 'node_modules/bulma/sass/elements/button';
+@import 'node_modules/bulma/sass/elements/form';
+@import 'node_modules/bulma/sass/elements/title';
+@import 'node_modules/bulma/sass/components/navbar';
+
+@import './flex';
+@import './width';
+@import './spacing';
+
+* {
+  // why isn't this default?
+  box-sizing:border-box;
+}
+
+.reveal.center {
+  height: 100vh;
+}
+
+
+a.icon-link {
+  img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.reveal {
+  .slides {
+    section {
+      @import './spacing';
+      @import './demos/todomvc';
+      @import './demos/tree';
+      @import './demos/routing';
+      @import './utilities/shadows';
+      @import './utilities/code';
+      @import './loader';
+      @import './demos/concurrency';
+
+      &.align-top {
+        top: 0 !important;
+        min-height: 100% !important;
+
+        .contextual-title {
+          position: static;
+          text-align: left;
+        }
+      }
+
+      &.present {
+      }
+
+      .height-100 {
+        height: 100vh;
+      }
+      .contextual-title {
+        transition: all 0.2s;
+        position: fixed;
+        top: 2rem;
+        left: 2rem;
+      }
+
+      .redux-table {
+        td {
+          font-size: 1.5rem;
+          line-height: 8rem;
+        }
+      }
+
+      .github-link {
+        height: 3rem;
+        min-height: 3rem;
+        line-height: 3rem;
+      }
+
+      .circle {
+        border-radius: 50%;
+      }
+
+
+      table {
+        th {
+          color: #efefef;
+        }
+      }
+    }
+  }
+  section {
+
+
+    img {
+      background: none;
+      border: none;
+      box-shadow: none;
+
+      &.w-50 {
+        width: 50%;
+      }
+    }
+
+    h5 {
+      font-size: 2rem;
+    }
+
+  }
+  pre {
+    font-size: 1rem;
+    padding: 1.5rem;
+
+  }
+
+  .react-color, .react-color h3, .react-color h4, .react-color a:not(.image) {
+    color: #61dafb;
+    // text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+  }
+
+  .ember-color, .ember-color h3, .ember-color h4, .ember-color a:not(.image) {
+    color: #f23819;
+    // text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+  }
+}
+
+.margin-center {
+  margin: 0 auto !important;
+}
+
+.no-margins {
+  margin: 0 !important;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.force-large, .force-large * {
+  font-size: 4rem !important;
+  line-height: 4rem !important;
+}
+
+.f-right {
+  float: right;
+}
+
+
+button {
+  font-size: 1.5rem;
+  border: none;
+  padding: 4px 8px;
+}

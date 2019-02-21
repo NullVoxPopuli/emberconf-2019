@@ -3,9 +3,29 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
+  let environment = EmberApp.env();
+  let isProduction = environment === 'production';
+
   let app = new EmberApp(defaults, {
     // Add options here
     hinting: false,
+
+    includeHighlightJS: false,
+    includeHighlightStyle: false,
+    snippetSearchPaths: ['src'],
+    includeFileExtensionInSnippetNames: false,
+    snippetPaths: ['src/slide-assets/snippets', 'slide-assets/snippets'],
+    fingerprint: {
+      // enabled: false,
+      enabled: isProduction,
+      generateAssetMap: true,
+      prepend: 'https://nullvoxpopuli.github.io/react-vs-ember-indy-tech-talks-presentation/',
+      // exclude: ['png', 'jpg', 'gif', 'svg']
+    },
+    ifa: {
+      enabled: true,
+      inline: false,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

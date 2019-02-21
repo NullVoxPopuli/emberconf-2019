@@ -1,15 +1,14 @@
-import Component from 'sparkles-component';
-import config from 'react-vs-ember/config/environment';
-import { service } from '@ember-decorators/service';
-import { computed } from '@ember-decorators/object';
+import Component from '@glimmer/component';
+import config from 'emberconf-2019/config/environment';
+import { inject as service } from '@ember/service';
 
 export default class Image extends Component {
-  @service assetMap;
+  // @service assetMap;
 
-  rootURL = config.routerRootURL || config.rootURL;
+  // rootURL = config.routerRootURL || config.rootURL;
 
-  @computed()
   get path() {
-    return this.assetMap.resolve(`images/${this.args.of}`) || this.args.of;
+    return `images/${this.args.of}`;
+    // return this.assetMap.resolve(`images/${this.args.of}`) || this.args.of;
   }
 }

@@ -2,7 +2,7 @@
 {{#if this.isSpeakerNotes}}
   <SpeakerNotes />
 {{else}}
-  <div class='reveal' {{did-insert this.initializeReveal}}>
+  <div class='reveal' {{did-insert (action this.initializeReveal)}}>
     <div class='slides'>
       {{yield
         (hash

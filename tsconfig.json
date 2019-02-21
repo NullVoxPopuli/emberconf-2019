@@ -27,6 +27,9 @@
       "emberconf-2019/src/*": [
         "src/*"
       ],
+      "emberconf-2019/*": [
+        "*"
+      ],
       "*": [
         "types/*"
       ]

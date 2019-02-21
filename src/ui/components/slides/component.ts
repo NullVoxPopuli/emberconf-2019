@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 const tracked = Ember._tracked;
 
+import Reveal from 'reveal.js';
+
 import { inject as service } from '@ember/service';
 import { observes } from '@ember-decorators/object';
 import { alias } from '@ember/object/computed';
