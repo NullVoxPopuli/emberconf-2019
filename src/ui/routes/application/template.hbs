@@ -1,5 +1,8 @@
+{{import Intro from './-components/section-01-intro'}}
+
 <Slides as |actions|>
-  <Section-01-Intro @openPresenterView={{actions.togglePresenterView}} />
+  <Intro @openPresenterView={{actions.togglePresenterView}} />
+  {{!-- <Section-01-Intro @openPresenterView={{actions.togglePresenterView}} /> --}}
   {{!-- <Section-02-AboutMe />
   <Section-03-Overview />
   <Section-04-Installation />
