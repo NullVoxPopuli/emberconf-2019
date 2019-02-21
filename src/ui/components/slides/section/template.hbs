@@ -2,7 +2,7 @@ import Slide from 'emberconf-2019/src/ui/components/slides/plain';
 
 --- hbs ---
 
-<Slide data-background-color='#000000'>
-  <Image @of='react.png' class='w-50' />
+<Slide data-background-color='#2a3990' class='section-title' as |s|>
+  {{yield s}}
 </Slide>
 
