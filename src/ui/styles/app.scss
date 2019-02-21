@@ -4,9 +4,9 @@
 @import 'node_modules/reveal.js/css/theme/template/mixins.scss';
 @import 'node_modules/reveal.js/css/theme/template/settings.scss';
 @import 'node_modules/reveal.js/css/theme/template/theme.scss';
-// @import 'node_modules/reveal.js/css/theme/solarized';
-@import './ember-theme.scss';
-@import './reveal-presentation';
+@import 'node_modules/reveal.js/css/theme/solarized';
+// @import './ember-theme.scss';
+// @import './reveal-presentation';
 @import './syntax-theme';
 
 @import 'node_modules/bulma/sass/utilities/_all';
@@ -42,13 +42,9 @@ a.icon-link {
   .slides {
     section {
       @import './spacing';
-      @import './demos/todomvc';
-      @import './demos/tree';
-      @import './demos/routing';
       @import './utilities/shadows';
       @import './utilities/code';
       @import './loader';
-      @import './demos/concurrency';
 
       &.align-top {
         top: 0 !important;

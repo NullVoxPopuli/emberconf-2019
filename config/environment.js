@@ -9,6 +9,7 @@ module.exports = function(environment) {
       },
     },
     modulePrefix: 'emberconf-2019',
+    podModulePrefix: '',
     environment,
     rootURL: '/',
     locationType: 'auto',

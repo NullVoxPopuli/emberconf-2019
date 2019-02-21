@@ -4196,9 +4196,9 @@ ember-cli-path-utils@^1.0.0:
   integrity sha1-Tjmvi1UwHN3FAXc5t3qAT7ogce0=
 
 ember-cli-preprocess-registry@^3.1.2:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-preprocess-registry/-/ember-cli-preprocess-registry-3.2.0.tgz#6c80f74b6506525f545eec985b7a5050c557f8d4"
-  integrity sha512-T9fDP43Y7/F+KVJdM4QvkDniyP2NZIgPI+lJwFIFCcXkDk5VKVAJiev+6NBmfD2EYHNWReoyzYSK6dMhr84xWw==
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-preprocess-registry/-/ember-cli-preprocess-registry-3.2.1.tgz#e8592e11ce186113c52bc0a53ee19efc4c405963"
+  integrity sha512-1tarAg0OgPknJ0S/xspG4DFFv19DeS9+4GINVKt/8dZruQsyFTGSwO3yyVQ9JI97wszkfWJ73HefQYB97DiQuA==
   dependencies:
     broccoli-clean-css "^2.0.1"
     broccoli-funnel "^2.0.1"
@@ -4536,9 +4536,9 @@ ember-qunit@^4.1.2:
     qunit "^2.9.1"
 
 ember-resolver@^5.0.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-5.1.1.tgz#ffc2b12e9a50b56f9f48f8c239b10d00a142dc42"
-  integrity sha512-P5Kqr+6HImxy2GXpYOf82WiNbhc2ZLohiIjaVLwF0AMqNLs1tU1qQhDHbERjrvaPI4MJj+yG65o29X/1Qo6f4Q==
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-5.1.2.tgz#a3ea9a1c0febd656d4b70068dbc7ec4bb9b522ac"
+  integrity sha512-gWJfqkdgzUCv2z8H/Rd+qp84tyWWIsTcY7AM+Mu1vCjv0+aU/errbxC8S0suFYbobnTDpZZTScH+r/WAJTYxaA==
   dependencies:
     "@glimmer/resolver" "^0.4.1"
     babel-plugin-debug-macros "^0.1.10"
@@ -4588,7 +4588,7 @@ ember-source-channel-url@^1.1.0:
 
 "ember-template-component-import@github:lifeart/ember-template-component-import#mu-support":
   version "0.1.0"
-  resolved "https://codeload.github.com/lifeart/ember-template-component-import/tar.gz/fe92ed7daed9e27f0719739f7dcd731be475cb32"
+  resolved "https://codeload.github.com/lifeart/ember-template-component-import/tar.gz/4af728fbd6220b2b06970228c2fafe7180ebd0c5"
   dependencies:
     broccoli-persistent-filter "^2.1.1"
     ember-cli-babel "^7.1.2"
@@ -5798,9 +5798,9 @@ home-or-tmp@^2.0.0:
     os-tmpdir "^1.0.1"
 
 homedir-polyfill@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.1.tgz#4c2bbc8a758998feebf5ed68580f76d46768b4bc"
-  integrity sha1-TCu8inWJmP7r9e1oWA921GdotLw=
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.3.tgz#743298cef4e5af3e194161fbadcc2151d3a058e8"
+  integrity sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==
   dependencies:
     parse-passwd "^1.0.0"
 
@@ -8219,9 +8219,9 @@ regenerator-transform@^0.10.0:
     private "^0.1.6"
 
 regenerator-transform@^0.13.3:
-  version "0.13.3"
-  resolved "https://registry.yarnpkg.com/regenerator-transform/-/regenerator-transform-0.13.3.tgz#264bd9ff38a8ce24b06e0636496b2c856b57bcbb"
-  integrity sha512-5ipTrZFSq5vU2YoGoww4uaRVAK4wyYC4TSICibbfEPOruUu8FFP7ErV0BjmbIOEpn3O/k9na9UEdYR/3m7N6uA==
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/regenerator-transform/-/regenerator-transform-0.13.4.tgz#18f6763cf1382c69c36df76c6ce122cc694284fb"
+  integrity sha512-T0QMBjK3J0MtxjPmdIMXm72Wvj2Abb0Bd4HADdfijwMdoIsyQZ6fWC7kDFhk2YinBBEMZDL7Y7wh0J1sGx3S4A==
   dependencies:
     private "^0.1.6"
 
