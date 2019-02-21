@@ -1,0 +1,85 @@
+<Slide as |s|>
+  <h3><Title /></h3>
+
+  <s.Notes data-markdown>
+    - An alternative to Redux for smaller apps
+  </s.Notes>
+</Slide>
+
+<Slide data-background-image='/images/galaxy.jpg' as |s|>
+  <s.ContextTitle><Title /></s.ContextTitle>
+
+  <div class='flex-row justify-content-center'>
+    <ReactRouterLogo />
+    <Image @of='orbitjs.png' style='width: 300px; height: 300px;' />
+  </div>
+
+  <s.Notes data-markdown>
+    - Used many places to provide access to shared state
+      - patterns similar to react-router, orbitjs' data store
+  </s.Notes>
+</Slide>
+
+<Slide>
+  <iframe class='w-100 height-100' src='https://reacttraining.com/react-router/'></iframe>
+</Slide>
+
+<Slide>
+  <iframe class='w-100 height-100' src='http://orbitjs.com/'></iframe>
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle><Title /></s.ContextTitle>
+
+  <div class='flex-column scrollable-code'>
+    {{code-snippet name='react-context.tsx'}}
+
+    <SupportingCodeLink
+      class='is-size-4'
+      @to='state-management/react-context/src/contexts/todo.ts'>
+      src/contexts/todo.ts
+    </SupportingCodeLink>
+  </div>
+
+  <s.Notes data-markdown>
+    - React.createContext
+      - kiiiiiinda like an interface?
+  </s.Notes>
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle><Title /> Provider</s.ContextTitle>
+
+  {{code-snippet name='react-context-provider.tsx'}}
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='state-management/react-context/src/ui/application.tsx'>
+    src/ui/application.tsx
+  </SupportingCodeLink>
+
+  <s.Notes data-markdown>
+    - this component becomes the state manager for this particular context.
+    - this is also why you see a lot of higher-order-components coupled with this pattern.
+     - the higher-ordered component abstracts away this setup from you.
+  </s.Notes>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle><Title /> Consumer</s.ContextTitle>
+
+  {{code-snippet name='react-context-consumer.tsx'}}
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='state-management/react-context/src/ui/components/footer/index.tsx'>
+    src/ui/components/footer/index.tsx
+  </SupportingCodeLink>
+
+  <s.Notes data-markdown>
+    - only children of the component containing the provider may consume the context.
+    - the context can be consumed by any number of children
+    - withRouter could be implemented this way
+  </s.Notes>
+</Slide>

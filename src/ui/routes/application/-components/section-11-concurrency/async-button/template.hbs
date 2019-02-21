@@ -1,0 +1,15 @@
+{{!-- BEGIN-SNIPPET ember-async-button-template.hbs --}}
+<button
+  class='button is-primary is-large'
+  onClick={{perform this.clickTask}}
+  disabled={{this.clickTask.isRunning}}
+>
+  Async Button: Clicked {{this.clickCount}} times
+</button>
+
+{{#if this.clickTask.isRunning}}
+  Running...
+{{/if}}
+
+<br>Last click coordinates: {{this.lastCoords}}
+{{!-- END-SNIPPET --}}

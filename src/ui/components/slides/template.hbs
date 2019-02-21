@@ -1,0 +1,14 @@
+
+{{#if this.isSpeakerNotes}}
+  <SpeakerNotes />
+{{else}}
+  <div class='reveal' {{did-insert this.initializeReveal}}>
+    <div class='slides'>
+      {{yield
+        (hash
+          togglePresenterView=(action this.togglePresenterView)
+        )
+      }}
+    </div>
+  </div>
+{{/if}}

@@ -1,0 +1,34 @@
+<div class='flex-row m-b-lg is-size-4'>
+  <div class='control p-l-lg p-r-lg'>
+    <input class='input' value={{this.currentRoute}} readonly>
+  </div>
+  <label>
+    aka (route / file name): <strong class='has-text-primary'>{{this.routeName}}</strong>
+  </label>
+</div>
+
+<div class='flex-row justify-content-start'>
+  {{#link-to 'application' class='button is-dark p-md'}}Home{{/link-to}}
+  {{#link-to
+    'krusty-krab'
+    class='m-l-lg button is-primary is-inverted p-md'
+  }}
+    Phone Duty
+  {{/link-to}}
+
+  {{#link-to
+    'krusty-krab.call-one'
+    class='m-l-lg button is-primary p-md'
+  }}
+    Is this the Krusty Krab?
+  {{/link-to}}
+
+  {{#link-to
+    'krusty-krab.call-two'
+    class='m-l-lg button is-info p-md'
+  }}
+    Is &nbsp;<em>this</em>&nbsp; the Krusty Krab?
+  {{/link-to}}
+</div>
+
+{{outlet}}
