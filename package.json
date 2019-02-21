@@ -60,7 +60,7 @@
     "ember-qunit": "^4.1.2",
     "ember-resolver": "^5.0.1",
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/2d08b865f840a188e3d279862ba93a5e6badf76a.tgz",
-    "ember-template-component-import": "github:jderr-mx/ember-template-component-import#add-assertion-for-pod-module-prefix",
+    "ember-template-component-import": "github:lifeart/ember-template-component-import#mu-support",
     "ember-welcome-page": "^3.2.0",
     "eslint": "^5.14.1",
     "eslint-config-prettier": "^4.0.0",

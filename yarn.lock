@@ -4586,9 +4586,9 @@ ember-source-channel-url@^1.1.0:
     jquery "^3.3.1"
     resolve "^1.10.0"
 
-"ember-template-component-import@github:jderr-mx/ember-template-component-import#add-assertion-for-pod-module-prefix":
+"ember-template-component-import@github:lifeart/ember-template-component-import#mu-support":
   version "0.1.0"
-  resolved "https://codeload.github.com/jderr-mx/ember-template-component-import/tar.gz/f18d5d2b9286f060bec51c5fb7f8fc38ef6833d0"
+  resolved "https://codeload.github.com/lifeart/ember-template-component-import/tar.gz/fe92ed7daed9e27f0719739f7dcd731be475cb32"
   dependencies:
     broccoli-persistent-filter "^2.1.1"
     ember-cli-babel "^7.1.2"
