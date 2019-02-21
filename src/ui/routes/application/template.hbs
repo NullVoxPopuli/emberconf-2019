@@ -1,4 +1,6 @@
-{{import Intro from './-components/section-01-intro'}}
+import Intro from './-components/section-01-intro';
+
+--- hbs ---
 
 <Presentation as |actions|>
   <Intro @openPresenterView={{actions.togglePresenterView}} />
