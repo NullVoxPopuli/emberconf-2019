@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-const tracked = Ember._tracked;
+import { tracked } from '@glimmer/tracking';
 
 import Reveal from 'reveal.js';
 

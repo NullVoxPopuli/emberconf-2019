@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>emberconf-2019</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{content-for "head"}}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>emberconf-2019</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/emberconf-2019.css">
+  {{content-for "head"}}
 
-    {{content-for "head-footer"}}
-  </head>
-  <body>
-    {{content-for "body"}}
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/emberconf-2019.js"></script>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/combine/npm/prismjs@1.14.0/plugins/line-numbers/prism-line-numbers.min.css,npm/prismjs@1.14.0/plugins/autolinker/prism-autolinker.min.css">
 
-    {{content-for "body-footer"}}
-  </body>
+  <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+  <link rel="stylesheet" href="{{rootURL}}assets/emberconf-2019.css">
+
+  {{content-for "head-footer"}}
+</head>
+
+<body>
+  {{content-for "body"}}
+
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/emberconf-2019.js"></script>
+
+
+  <script
+    src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.14.0,npm/prismjs@1.14.0/plugins/line-numbers/prism-line-numbers.min.js,npm/prismjs@1.14.0/plugins/show-language/prism-show-language.min.js,npm/prismjs@1.14.0/components/prism-typescript.min.js,npm/prismjs@1.14.0/components/prism-jsx.min.js,npm/prismjs@1.14.0/components/prism-tsx.min.js,npm/prismjs@1.14.0/components/prism-markup-templating.min.js,npm/prismjs@1.14.0/components/prism-handlebars.min.js,npm/prismjs@1.14.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js,npm/prismjs@1.14.0/plugins/autolinker/prism-autolinker.min.js"></script>
+
+  <script type='text/javascript'>
+    setTimeout(function () {
+      Prism && Prism.highlightAll() || console.log('no Prism yet');
+    }, 6000);
+  </script>
+
+  {{content-for "body-footer"}}
+</body>
+
 </html>
