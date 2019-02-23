@@ -38,6 +38,15 @@ a.icon-link {
   }
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+
+  .grid-item {}
+}
+
 .reveal {
   .slides {
     section {

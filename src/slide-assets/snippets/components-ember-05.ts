@@ -1,10 +1,11 @@
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import Component from '@ember/component';
+import { action } from '@ember-decorators/object';
 
 export default class Incrementer extends Component {
-  @tracked number = 0;
+  number = 0;
 
+  @action
   increment() {
-    this.number++;
+    this.set('number', this.number + 1);
   }
 }
