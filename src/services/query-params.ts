@@ -17,7 +17,7 @@ export default class QueryParamsService extends Service {
 
   init() {
     this.updateParams();
-    this.updateLocation();
+    // this.updateLocation();
   }
 
   @observes('router.currentURL')
@@ -51,7 +51,28 @@ export default class QueryParamsService extends Service {
 
     // TODO: probably have to use define property here
     //       maybe need a way to work in tracked?
-    this.current = queryParams;
+
+    Object.keys(queryParams || {}).forEach(key => {
+      let value = queryParams[key];
+      let currentValue = this.current[key];
+
+      if (currentValue === value) {
+        return;
+      }
+
+      Object.defineProperty(this.current, key, {
+        configurable: false,
+        enumerable: false,
+        get() {
+          return value;
+        },
+        set(newValue) {
+          window.location.search = qs.stringify({ ...this.current, [key]: newValue });
+        }
+      });
+    });
+
+
     this.byPath[path] = this.current;
     console.log(this.current);
   }
