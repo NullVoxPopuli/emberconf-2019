@@ -8,6 +8,7 @@ import { observes } from '@ember-decorators/object';
 import { isPresent, isBlank } from '@ember/utils';
 
 import QueryParamsService from 'emberconf-2019/src/services/query-params';
+import { alias } from '@ember-decorators/object/computed';
 
 export default class Presentation extends Component {
   @service queryParams!: QueryParamsService;
@@ -15,10 +16,13 @@ export default class Presentation extends Component {
   isSpeakerNotes!: boolean;
   height!: number;
   width!: number;
+
+  // @alias('queryParams.current.c') controls!: boolean;
   get controls() {
     return this.queryParams.current.c === '1';
   }
   set controls(value) {
+    console.log('setting', this.queryParams.current, this.queryParams.current.c, value);
     this.queryParams.current.c = (value ? '1': '0');
   }
 
@@ -35,7 +39,7 @@ export default class Presentation extends Component {
   }
 
   togglePresenterView() {
-    console.log("toggle presenter view")
+    console.log("toggle presenter view");
     this.controls = !this.controls;
     // this.launchSpeakerNotes();
   }

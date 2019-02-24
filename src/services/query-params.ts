@@ -9,26 +9,50 @@ interface QueryParams {
 
 interface QueryParamsByPath { [key: string]: QueryParams; }
 
+const queryParamHandler = {
+  get(obj: any, key: string) {
+    return Reflect.get(...arguments);
+  },
+  set(obj: any, key: string, value: any) {
+    let { protocol, host, pathname } = window.location;
+    let query = qs.stringify({ ...obj, [key]: value });
+    let newUrl = `${protocol}//${host}${pathname}?${query}`;
+
+    window.history.pushState({ path: newUrl }, '', newUrl);
+
+    return Reflect.set(...arguments); // success
+  }
+}
+
 export default class QueryParamsService extends Service {
   @service router: any;
 
-  @tracked current: QueryParams = {};
+  _current: QueryParams = {};
+  @tracked current!: QueryParams;
   @tracked byPath: QueryParamsByPath = {};
+
+  constructor() {
+    super(...arguments);
+
+    this.setupProxies();
+  }
 
   init() {
     this.updateParams();
     // this.updateLocation();
   }
 
-  @observes('router.currentURL')
-  urlObserver() {
-    this.updateParams();
-  }
+  // For when ember wants to make a change to the route
+  // @observes('router.currentURL')
+  // urlObserver() {
+  //   this.updateParams();
+  // }
 
-  @observes('current')
-  qpObserver() {
-    this.updateLocation();
-  }
+  // for when the path changes outside of ember
+  // @observes('current')
+  // qpObserver() {
+  //   this.updateLocation();
+  // }
 
   private updateLocation() {
     console.log(window.location.search, this.current);
@@ -45,12 +69,13 @@ export default class QueryParamsService extends Service {
     window.location.search = qs.stringify(this.current);
   }
 
+  private setupProxies() {
+    this.current = new Proxy(this._current, queryParamHandler);
+  }
+
   private updateParams() {
     const [path, params] = this.router.currentURL.split('?');
     const queryParams = params && qs.parse(params);
-
-    // TODO: probably have to use define property here
-    //       maybe need a way to work in tracked?
 
     Object.keys(queryParams || {}).forEach(key => {
       let value = queryParams[key];
@@ -60,20 +85,11 @@ export default class QueryParamsService extends Service {
         return;
       }
 
-      Object.defineProperty(this.current, key, {
-        configurable: false,
-        enumerable: false,
-        get() {
-          return value;
-        },
-        set(newValue) {
-          window.location.search = qs.stringify({ ...this.current, [key]: newValue });
-        }
-      });
+      this.current[key] = value;
     });
 
 
     this.byPath[path] = this.current;
-    console.log(this.current);
+    console.log(this._current);
   }
 }
