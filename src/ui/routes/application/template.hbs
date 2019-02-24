@@ -1,21 +1,21 @@
 import Intro from './-components/section-01-intro';
 import AboutMe from './-components/section-02-about-me';
 import Overview from './-components/section-03-overview';
-import ComponentCompare from './-components/section-05-components';
+import Components from './-components/section-05-components';
 
 --- hbs ---
 
 <Presentation as |actions|>
-  {{!-- <Intro @openPresenterView={{actions.togglePresenterView}} />
+  <Intro @openPresenterView={{actions.togglePresenterView}} />
   <AboutMe />
-  <Overview /> --}}
-  <ComponentCompare />
+  <Overview />
+  <Components />
 
 
 
     {{!--  <Section-03-Overview />
   <Section-04-Installation />
-  
+
   <Section-06-AppStructure />
   <Section-07-Addons /> --}}
   {{!--

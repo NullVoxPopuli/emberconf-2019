@@ -5,19 +5,22 @@ import Reveal from 'reveal.js';
 
 import { inject as service } from '@ember/service';
 import { observes } from '@ember-decorators/object';
-import { alias } from '@ember/object/computed';
 import { isPresent, isBlank } from '@ember/utils';
-import { instrument, subscribe } from '@ember/instrumentation';
 
-import RevealService, { IPresentationState } from 'emberconf-2019/src/services/reveal-service';
+import QueryParamsService from 'emberconf-2019/src/services/query-params';
 
-export default class Slides extends Component {
-  @service revealService!: RevealService;
+export default class Presentation extends Component {
+  @service queryParams!: QueryParamsService;
 
-  @alias('revealService.isSpeakerNotes') isSpeakerNotes!: boolean;
-  @alias('revealService.presentationHeight') height!: number;
-  @alias('revealService.presentationWidth') width!: number;
-  @alias('revealService.controls') controls!: boolean;
+  isSpeakerNotes!: boolean;
+  height!: number;
+  width!: number;
+  get controls() {
+    return this.queryParams.current.c === '1';
+  }
+  set controls(value) {
+    this.queryParams.current.c = (value ? '1': '0');
+  }
 
   @tracked transition = 'none'; // none|fade|slide|convex|concave|zoom
   @tracked backgroundTransition = 'none'; // none/fade/slide/convex/concave/zoom
@@ -32,28 +35,27 @@ export default class Slides extends Component {
   }
 
   togglePresenterView() {
-    this.launchSpeakerNotes();
+    console.log("toggle presenter view")
+    this.controls = !this.controls;
+    // this.launchSpeakerNotes();
   }
 
   initializeReveal() {
+    console.log('initialize', this.isSpeakerNotes);
+
+    // window.addEventListener('message', function(event) {
+    //   let data = JSON.parse(event.data);
+
+    //   if (data.namespace === 'reveal') {
+    //     // this.syncRevealState(data);
+    //   }
+    // });
+
     if (this.isSpeakerNotes) {
       return;
     }
 
     Reveal.initialize(this.revealOptions());
-
-    Reveal.addEventListener('slidechanged', this.revealSlideChanged);
-    Reveal.addEventListener('overviewshown', this.revealOverviewShown);
-    Reveal.addEventListener('overviewhidden', this.revealOverviewHidden);
-    Reveal.addEventListener('paused', this.revealPaused);
-    Reveal.addEventListener('resumed', this.revealResumed);
-
-    subscribe('revealService.message', {
-      before() {},
-      after: (_name, _timestamp, payload) => {
-        this.syncRevealState(payload);
-      }
-    });
 
     this.setRevealState();
   }
@@ -69,15 +71,9 @@ export default class Slides extends Component {
       width: this.width || 1280,
       height: this.height || 720,
       transitionSpeed: 'fast',
+      postMessage: true,
+      postMessageEvents: true,
     };
-
-    if (this.width) {
-      revealOptions.width = this.width;
-    }
-
-    if (this.height) {
-      revealOptions.height = this.height;
-    }
 
     if (this.isSpeakerNotes) {
       revealOptions.showNotes = true;
@@ -102,6 +98,7 @@ export default class Slides extends Component {
     const childWindow = window.open(this.speakerNotesUrl(), 'reveal.js - Notes', 'width=1100,height=700');
 
     this.childWindow = childWindow;
+
     this.checkForChildWindow();
   }
 
@@ -116,50 +113,18 @@ export default class Slides extends Component {
     this.childWindowInterval = setInterval(check, 1000);
   }
 
-
-
-  private syncRevealState(state: IPresentationState) {
-    this.revealService.set('indexh', state.indexh);
-    this.revealService.set('indexv', state.indexv);
-
-    if (isPresent(state.paused)) {
-      this.revealService.set('paused', !!state.paused);
-    }
-    if (isPresent(state.overview)) {
-      this.revealService.set('overview', !!state.overview);
-    }
-  }
-
   private setRevealState() {
-    let state = this.revealService.presentationState;
-
-    if (state) {
-      Reveal.setState(state);
-    }
+    Reveal.setState(this.presentationState);
   }
 
-
-  private revealSlideChanged(event) {
-    instrument('emberRevealJs.message', event);
-  }
-
-  private revealOverviewShown(event) {
-    event.overview = true;
-    instrument('emberRevealJs.message', event);
-  }
-
-  private revealOverviewHidden(event) {
-    event.overview = false;
-    instrument('emberRevealJs.message', event);
-  }
-
-  private revealPaused(event) {
-    event.paused = true;
-    instrument('emberRevealJs.message', event);
-  }
-
-  private revealResumed(event) {
-    event.paused = false;
-    instrument('emberRevealJs.message', event);
+  get presentationState() {
+    return {
+      indexh: this.queryParams.current.h,
+      indexv: this.queryParams.current.v,
+      paused: this.queryParams.current.p,
+      controls: this.queryParams.current.c,
+      overview: this.queryParams.current.o,
+      isSpeakerNotes: this.queryParams.current.r,
+    };
   }
 }

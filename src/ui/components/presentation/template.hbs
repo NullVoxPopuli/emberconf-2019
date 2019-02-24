@@ -5,13 +5,16 @@ import SpeakerNotes from './speaker-notes';
 {{#if this.isSpeakerNotes}}
   <SpeakerNotes />
 {{else}}
-  <div class='reveal' {{did-insert (action this.initializeReveal)}}>
+  <div class='reveal'
+    {{did-insert (action this.initializeReveal)}}
+    {{did-update (action this.setRevealState)}}
+  >
     <div class='slides'>
       {{yield
-        (hash
-          togglePresenterView=(action this.togglePresenterView)
-        )
-      }}
+          (hash
+            togglePresenterView=(action this.togglePresenterView)
+          )
+        }}
     </div>
   </div>
 {{/if}}
