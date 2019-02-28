@@ -1,3 +1,4 @@
+import { set } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -8,23 +9,17 @@ import { observes } from '@ember-decorators/object';
 import { isPresent, isBlank } from '@ember/utils';
 
 import QueryParamsService from 'emberconf-2019/src/services/query-params';
-import { alias } from '@ember-decorators/object/computed';
+
+import { alias } from 'emberconf-2019/src/utils/alias';
 
 export default class Presentation extends Component {
   @service queryParams!: QueryParamsService;
 
-  isSpeakerNotes!: boolean;
+  @alias('queryParams.current.c') controls!: boolean;
+  @alias('queryParams.current.r') isSpeakerNotes!: boolean;
+
   height!: number;
   width!: number;
-
-  // @alias('queryParams.current.c') controls!: boolean;
-  get controls() {
-    return this.queryParams.current.c === '1';
-  }
-  set controls(value) {
-    console.log('setting', this.queryParams.current, this.queryParams.current.c, value);
-    this.queryParams.current.c = (value ? '1': '0');
-  }
 
   @tracked transition = 'none'; // none|fade|slide|convex|concave|zoom
   @tracked backgroundTransition = 'none'; // none/fade/slide/convex/concave/zoom
@@ -39,9 +34,7 @@ export default class Presentation extends Component {
   }
 
   togglePresenterView() {
-    console.log("toggle presenter view");
-    this.controls = !this.controls;
-    // this.launchSpeakerNotes();
+    this.launchSpeakerNotes();
   }
 
   initializeReveal() {
