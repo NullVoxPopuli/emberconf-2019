@@ -4,8 +4,6 @@ import { get, computed } from '@ember/object';
 // Straight up taken from ember-reveal-js
 export default Component.extend({
   classNames: ['reveal-embedded-presentation'],
-  width: 640,
-  height: 512,
   url: null, // passed in
   src: computed('url', function() {
     let params = [

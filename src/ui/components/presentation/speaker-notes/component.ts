@@ -1,7 +1,7 @@
 
 /* global marked */
 import Component from '@glimmer/component';
-const tracked = Ember._tracked;
+import { tracked } from '@glimmer/tracking';
 
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
