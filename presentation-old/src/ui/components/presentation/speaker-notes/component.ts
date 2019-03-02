@@ -4,8 +4,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
-import { set, get } from '@ember/object';
 import { isPresent, isBlank } from '@ember/utils';
 import showdown from 'showdown';
 
@@ -25,7 +23,6 @@ export default class extends Component {
     this.initializeSpeakerNotes();
   }
 
-  @computed
   get currentUrl() {
     let s = location.search;
     let params = 'postMessageEvents=true';
@@ -34,7 +31,6 @@ export default class extends Component {
     return ['//', location.host, location.pathname, qs].join('');
   }
 
-  @computed
   get upcomingUrl() {
     let s = location.search;
     let params = 'controls=false';
@@ -43,13 +39,13 @@ export default class extends Component {
     return ['//', location.host, location.pathname, qs].join('');
   }
 
-  notes = null;
-  notesValue = null;
+  @tracked notes = null;
+  @tracked notesValue = null;
   currentState = null;
 
-  currentSlide = null;
+  @tracked currentSlide = null;
 
-  upcomingSlide = null;
+  @tracked upcomingSlide = null;
   connected = false;
 
   private initializeSpeakerNotes() {
@@ -71,11 +67,8 @@ export default class extends Component {
     if (!revealMessage) {
       return;
     }
-    // BEGIN-MONKEYPATCH notesjs-locals
-    var Reveal = this.currentSlide.contentWindow.Reveal;
-    // END-MONKEYPATCH notesjs-locals
 
-    // BEGIN-SNIPPET notesjs-post
+    var Reveal = this.currentSlide.contentWindow.Reveal;
 
     var slideElement = Reveal.getCurrentSlide(),
       notesElement = slideElement.querySelector( 'aside.notes' );
@@ -98,9 +91,7 @@ export default class extends Component {
       messageData.notes = notesElement.innerHTML;
       messageData.markdown = typeof notesElement.getAttribute( 'data-markdown' ) === 'string';
     }
-    // END-SNIPPET notesjs-post
 
-    // BEGIN-MONKEYPATCH handleStateMessage-locals
     var data = JSON.parse( event.data );
     data.notes = messageData.notes;
     data.markdown = messageData.markdown;
@@ -111,9 +102,7 @@ export default class extends Component {
       contentWindow: window.opener || window
     };
     var upcomingSlide = this.upcomingSlide;
-    // END-MONKEYPATCH handleStateMessage-locals
 
-    // BEGIN-SNIPPET handleStateMessage
     // No need for updating the notes in case of fragment changes
     if ( data.notes ) {
       notes.classList.remove( 'hidden' );
@@ -133,7 +122,6 @@ export default class extends Component {
     currentSlide.contentWindow.postMessage( JSON.stringify({ method: 'setState', args: [ data.state ] }), '*' );
     upcomingSlide.contentWindow.postMessage( JSON.stringify({ method: 'setState', args: [ data.state ] }), '*' );
     upcomingSlide.contentWindow.postMessage( JSON.stringify({ method: 'next' }), '*' );
-    // END-SNIPPET handleStateMessage
 
     this.syncRevealState(data.state);
 
@@ -167,8 +155,8 @@ export default class extends Component {
     const currentIframe = document.querySelector('#current-slide iframe');
     const upcomingIframe = document.querySelector('#upcoming-slide iframe');
 
-    this.set('currentSlide', currentIframe);
-    this.set('upcomingSlide', upcomingIframe);
+    this.currentSlide = currentIframe;
+    this.upcomingSlide = upcomingIframe;
   }
 
   private setupNotes() {
@@ -177,8 +165,8 @@ export default class extends Component {
     notes = document.querySelector( '.speaker-controls-notes' );
     notesValue = document.querySelector( '.speaker-controls-notes .value' );
 
-    set(this, 'notes', notes);
-    set(this, 'notesValue', notesValue);
+    this.notes = notes;
+    this.notesValue = notesValue;
   }
 
   private setupTimer() {
