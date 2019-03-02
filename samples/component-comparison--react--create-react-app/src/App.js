@@ -1,28 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useMemo, useState } from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import { onTick } from './effects/on-tick';
+import { updateDocumentTitle } from './effects/update-document-title';
+
+export default function MyComponent({ someProp }) {
+  const [seconds, setSeconds] = useState(0);
+  const [count, setCount] = useState(0);
+  const minutes = useMemo(() => seconds / 60, [seconds]);
+
+  onTick(() => setSeconds(seconds + 1));
+  updateDocumentTitle(count);
+
+  const incrementCount = () => setCount(count + 1);
+  const clearElapsedTime = () => setSeconds(0);
+
+  return (
+    <div>
+      Passed Prop: {someProp}<br />
+      Elapsed Seconds: {seconds}<br />
+      Elapsed Minutes: {minutes}<br /><br />
+      
+      <button onClick={incrementCount}>
+        Bump document title count
+      </button><br /><br />
+
+      <button onClick={clearElapsedTime}>
+        Clear Elapsed Time
+      </button>
+    </div>
+  );
 }
-
-export default App;
