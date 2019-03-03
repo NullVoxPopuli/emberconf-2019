@@ -19,7 +19,7 @@ export default function MyComponent({ someProp }) {
       Passed Prop: {someProp}<br />
       Elapsed Seconds: {seconds}<br />
       Elapsed Minutes: {minutes}<br /><br />
-      
+
       <button onClick={incrementCount}>
         Bump document title count
       </button><br /><br />
