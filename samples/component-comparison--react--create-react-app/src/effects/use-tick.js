@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 
-export function onTick(callback, delay = 1000) {
+export function useTick(callback, delay = 1000) {
   const savedCallback = useRef();
 
   useEffect(() => {
