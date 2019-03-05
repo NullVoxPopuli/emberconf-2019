@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class MyComponent extends Component {
   @tracked seconds = 0;
@@ -9,7 +10,7 @@ export default class MyComponent extends Component {
     return this.seconds / 60;
   }
 
-  incrementSeconds() { this.seconds++; }
-  bumpTitleCount() { this.count++; }
-  clearElapsedTime() { this.seconds = 0; }
+  @action incrementSeconds() { this.seconds++; }
+  @action incrementCount() { this.count++; }
+  @action clearElapsedTime() { this.seconds = 0; }
 }
