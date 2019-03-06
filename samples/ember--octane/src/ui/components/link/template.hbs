@@ -1,0 +1,8 @@
+<a
+  class={{if this.isActive 'active'}}
+  ...attributes
+  href={{this.url}}
+  onclick={{action this.onClick}}
+>
+  {{yield}}
+</a>
