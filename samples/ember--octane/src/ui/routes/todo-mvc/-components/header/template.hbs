@@ -1,0 +1,13 @@
+<header class='header'>
+  <form {{on 'submit' (prevent-default (action this.didSubmit))}}>
+    <input
+      type="text"
+      class="new-todo"
+      placeholder="What needs to be done?"
+      value={{this.text}}
+      oninput={{action (mut text) value="target.value"}}
+      autofocus>
+
+    <input style="display: none" type="submit" value="submit" />
+  </form>
+</header>

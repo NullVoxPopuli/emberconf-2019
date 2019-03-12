@@ -1,0 +1,32 @@
+<footer class='footer'>
+
+  <span class='todo-count'>
+    <strong>{{this.todosCount}} {{this.itemWord}} left</strong>
+  </span>
+
+  <ul class="filters">
+    <li>
+      <a {{on 'click' (action this.toAll)}} class='{{if this.isAll 'selected'}}'>
+        All
+      </a>
+    </li>
+
+    <li>
+      <a {{on 'click' (action this.toActive)}} class='{{if this.isActive 'selected'}}'>
+        Active
+      </a>
+    </li>
+
+    <li>
+      <a {{on 'click' (action this.toCompleted)}} class='{{if this.isCompleted 'selected'}}'>
+        Completed
+      </a>
+    </li>
+  </ul>
+
+  {{#if this.showClearButton}}
+    <button {{on 'click' (action this.clearCompleted)}} class="clear-completed">
+      Clear completed
+    </button>
+  {{/if}}
+</footer>

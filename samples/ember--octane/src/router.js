@@ -8,6 +8,8 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('component-demo');
+  this.route('concurrency-demo');
+  this.route('todo-mvc');
 });
 
 export default Router;
