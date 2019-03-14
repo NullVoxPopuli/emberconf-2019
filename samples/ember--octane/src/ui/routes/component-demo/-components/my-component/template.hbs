@@ -1,16 +1,16 @@
 <div
   {{update-document-title this.count}}
-  {{on-tick (action this.incrementSeconds)}}
+  {{on-tick this.incrementSeconds}}
 >
   Passed Prop: {{@someProp}}<br>
   Elapsed Seconds: {{this.seconds}}<br>
   Elapsed Minutes: {{this.minutes}}<br><br>
 
-  <button onclick={{action this.incrementCount}}>
+  <button {{on 'click' this.incrementCount}}>
     Bump document title count
   </button><br><br>
 
-  <button onclick={{action this.clearElapsedTime}}>
+  <button {{on 'click' this.clearElapsedTime}}>
     Clear Elapsed Time
   </button>
 </div>

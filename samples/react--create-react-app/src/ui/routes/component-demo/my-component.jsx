@@ -8,11 +8,12 @@ export default function MyComponent({ someProp }) {
   const [count, setCount] = useState(0);
   const minutes = useMemo(() => seconds / 60, [seconds]);
 
-  useTick(() => setSeconds(seconds + 1));
-  useUpdateableDocumentTitle(count);
-
+  const incrementSeconds = () => setSeconds(seconds + 1);
   const incrementCount = () => setCount(count + 1);
   const clearElapsedTime = () => setSeconds(0);
+
+  useTick(incrementSeconds);
+  useUpdateableDocumentTitle(count);
 
   return (
     <div>
