@@ -1,0 +1,29 @@
+import LoginButton from './-components/login';
+
+--- hbs ---
+
+<div class='tabs'>
+  <nav class='tabs-nav'>
+    <Link @to='auth'>
+      Auth Home
+    </Link>
+    <Link @to='auth.protected'>
+      Protected Route
+    </Link>
+  </nav>
+</div>
+
+<hr>
+
+{{#unless this.auth0.isAuthenticated}}
+  <LoginButton />
+{{/unless}}
+
+<br>
+{{#if this.auth0.isAuthenticated}}
+  I am authenticated
+{{else}}
+  I am not authenticated
+{{/if}}
+
+{{outlet}}

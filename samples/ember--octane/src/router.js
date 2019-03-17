@@ -10,6 +10,10 @@ Router.map(function() {
   this.route('component-demo');
   this.route('concurrency-demo');
   this.route('todo-mvc');
+  this.route('auth', function() {
+    this.route('protected');
+  });
+  this.route('auth-with-esa');
 });
 
 export default Router;

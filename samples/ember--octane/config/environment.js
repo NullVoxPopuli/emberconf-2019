@@ -1,5 +1,9 @@
 'use strict';
 
+const domain = 'nullvoxpopuli-emberconf-2019-demo.auth0.com';
+const clientId = 'FLmP8UOGI2gyfjgVIayIWc6jB0pLN5AP';
+const callbackUrl = 'localhost:4200/auth';
+
 module.exports = function(environment) {
   let ENV = {
     'ember-resolver': {
@@ -28,6 +32,18 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    'ember-cli-notifications': {
+      includeFontAwesome: true
+    },
+    'ember-simple-auth': {
+      authenticationRoute: 'auth-with-esa/login',
+      auth0: {
+        clientID: clientId,
+        domain: domain,
+        logoutReturnToURL: '/auth-with-esa',
+        enableImpersonation: false
+      }
     }
   };
 
