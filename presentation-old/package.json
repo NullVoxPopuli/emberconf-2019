@@ -56,7 +56,7 @@
     "ember-code-snippet": "github:NullVoxPopuli/ember-code-snippet#master",
     "ember-query-params-service": "github:NullVoxPopuli/ember-query-params-service",
     "ember-data": "^3.7.0",
-    "ember-decorators": "^5.1.3",
+    "ember-decorators": "^6.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-keyboard": "^4.0.0",
     "ember-load-initializers": "^2.0.0",
