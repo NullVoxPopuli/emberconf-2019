@@ -48,7 +48,7 @@
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/31db86654f0f1c43052bbc7f9c5ee6694ab2fff1.tgz",
     "ember-template-component-import": "github:lifeart/ember-template-component-import#mu-support",
     "eslint-plugin-ember": "^6.0.1",
-    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-node": "^9.0.0",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.0",
     "shoelace-css": "^1.0.0-beta24"
