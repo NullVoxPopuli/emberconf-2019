@@ -24,7 +24,7 @@
     "@glimmer/component": "^0.14.0-alpha.3",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.2.20",
-    "ember-cli": "github:ember-cli/ember-cli#6d417172afce2e4280be0272dfb3804ebcdc5767",
+    "ember-cli": "github:ember-cli/ember-cli#47479563fafd2147fb056e3d23335d7b610eafaf",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.5.0",
     "ember-cli-dependency-checker": "^3.0.0",
