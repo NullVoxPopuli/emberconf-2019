@@ -50,7 +50,7 @@
     "eslint-plugin-node": "^8.0.1",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.0",
-    "shoelace-css": "^1.0.0-beta24"
+    "shoelace-css": "^1.0.0-beta9"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"

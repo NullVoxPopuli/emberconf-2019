@@ -25,6 +25,6 @@
   ],
   "devDependencies": {
     "react-router-dom": "^4.3.1",
-    "shoelace-css": "^1.0.0-beta24"
+    "shoelace-css": "^1.0.0-beta9"
   }
 }
