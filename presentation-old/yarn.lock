@@ -1211,10 +1211,10 @@
   dependencies:
     "@types/handlebars" "*"
 
-"@types/ember__test-helpers@^0.7.7":
-  version "0.7.7"
-  resolved "https://registry.yarnpkg.com/@types/ember__test-helpers/-/ember__test-helpers-0.7.7.tgz#b11832e5e622c1e61f96d8477845a84b5ec348c3"
-  integrity sha512-Agvz+92jejB/Fy4jf0qhii6bOeXrPXZUWkGGlbNT5VXppRbQaQirjML/NSoGm93dU/o2JD/E9Ax8ZOFSthGkDw==
+"@types/ember__test-helpers@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/ember__test-helpers/-/ember__test-helpers-2.0.0.tgz#b4b8323693789670720f55a51b1f8e6cd6bfbe29"
+  integrity sha512-2FyfVCb0W2OJ2OeZmg5QxLk0K7n5BCsEU8D481y7XNEVkzyQGR3U64umVf0eME/tpW3papAZ+JwS01HtGOSbgA==
   dependencies:
     "@types/ember" "*"
     "@types/ember__application" "*"
