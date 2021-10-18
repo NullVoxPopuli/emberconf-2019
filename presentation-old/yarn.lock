@@ -1275,10 +1275,10 @@
   resolved "https://registry.yarnpkg.com/@types/qunit/-/qunit-2.5.4.tgz#0518940acc6013259a8619a1ec34ce0e4ff8d1c4"
   integrity sha512-VHi2lEd4/zp8OOouf43JXGJJ5ZxHvdLL1dU0Yakp6Iy73SjpuXl7yjwAwmh1qhTv8krDgHteSwaySr++uXX9YQ==
 
-"@types/reveal@^3.3.33":
-  version "3.3.33"
-  resolved "https://registry.yarnpkg.com/@types/reveal/-/reveal-3.3.33.tgz#e5448f6b4e6734ec3ea4ee85211bb9313a879044"
-  integrity sha512-lKbezA9Oa5LfdSRwFDc/FHEGH4+FjiXh/a/PCSZAmN+KCeQJL/3ClOdAQwOxt3zdHc8XyioT+cNvIOletwRI7A==
+"@types/reveal@^4.0.0":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@types/reveal/-/reveal-4.1.1.tgz#4fb744b838eb5b52a35ab3d24a064ccd8c43aa2c"
+  integrity sha512-WReEUSkl4zCFxFc7GEqiNh5J/kC5T6m9SUBSxguJ8c3BS9ehqR6eK8s6gvvNxuyeHo6TzbhAb02VpYyTmxtGFg==
 
 "@types/rsvp@*", "@types/rsvp@^4.0.2":
   version "4.0.2"

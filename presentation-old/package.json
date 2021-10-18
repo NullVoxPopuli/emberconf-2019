@@ -31,7 +31,7 @@
     "@types/ember__test-helpers": "^0.7.7",
     "@types/qs": "^6.5.1",
     "@types/qunit": "^2.5.4",
-    "@types/reveal": "^3.3.33",
+    "@types/reveal": "^4.0.0",
     "@types/rsvp": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^1.4.0",
     "@typescript-eslint/parser": "^1.4.0",
